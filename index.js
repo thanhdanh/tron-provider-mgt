@@ -22,6 +22,9 @@ app.post('/api/v1/best-tron-provider', (req, res) => {
     bestTronProvider = providerName;
     res.json({ message: 'Best Tron provider updated successfully', bestProvider: bestTronProvider });
 });
+app.get('/healthz', (req, res) => {
+    res.status(200).json({ status: 'ok', timestamp: new Date().toISOString() });
+});
 
 const PORT = process.env.PORT || 3000;
 let server;
